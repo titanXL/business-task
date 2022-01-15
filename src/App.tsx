@@ -1,28 +1,32 @@
-import { connect } from "react-redux";
-import { Routes, Route } from "react-router-dom";
-import { Navbar } from "./components/Navbar";
+import { Route, Routes } from "react-router-dom";
+import { Layout } from "@/components/Layout";
+import { Businesses } from "@/pages/Businesses";
+import { BusinessDetails } from "@/pages/Businesses/BusinessDetails";
+import { NotFound } from "@/pages/NotFound";
+import { useBusinesses } from "@/providers/Businesses";
+import { Loading } from "@/pages/Loading";
+import { ErrorPage } from "@/pages/Error";
 
-interface Props {
-  loading: any;
-}
+const App: React.FC = () => {
+  const { isLoading, isError } = useBusinesses();
 
-const App: React.FC<Props> = ({ loading }) => {
+  if (isLoading) return <Loading />;
+
+  if (isError) return <ErrorPage />;
+
   return (
-    <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Businesses />}></Route>
+        <Route path="businesses" element={<Businesses />}></Route>
+        <Route
+          path="/businesses/:businessId"
+          element={<BusinessDetails />}
+        ></Route>
+      </Route>
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 };
 
-function Home() {
-  return <h2>Home</h2>;
-}
-
-const mapStateToProps = ({ loading }: any) => ({
-  loading,
-});
-
-export default connect(mapStateToProps)(App);
+export default App;

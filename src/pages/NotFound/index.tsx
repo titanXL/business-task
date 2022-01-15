@@ -1,3 +1,3 @@
 export const NotFound: React.FC = () => {
-  return <div>NotFound</div>;
+  return <div className="page-container">NotFound</div>;
 };
