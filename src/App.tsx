@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { Routes, Route } from "react-router-dom";
+import { Navbar } from "./components/Navbar";
 
 interface Props {
   loading: any;
@@ -7,12 +8,12 @@ interface Props {
 
 const App: React.FC<Props> = ({ loading }) => {
   return (
-    <div className="App">
-      {JSON.stringify(loading, null, 2)}
+    <>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
-    </div>
+    </>
   );
 };
 
