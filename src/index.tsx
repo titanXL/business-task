@@ -9,18 +9,21 @@ import { BusinessesProvider } from "@/providers/Businesses";
 
 import "./styles/reset.css";
 import "./styles/index.css";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 const queryClient = getQueryClient();
 
 ReactDOM.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <BusinessesProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </BusinessesProvider>
-    </QueryClientProvider>
+    <ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <BusinessesProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </BusinessesProvider>
+      </QueryClientProvider>
+    </ErrorBoundary>
   </React.StrictMode>,
   document.getElementById("root")
 );

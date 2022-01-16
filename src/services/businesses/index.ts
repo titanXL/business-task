@@ -4,7 +4,7 @@ import { Businesses } from "@/services/businesses/types";
 
 export const fetchBusinesses = async () => {
   try {
-    const response = await API.get<Businesses>("/");
+    const response = await API.get<Array<Businesses>>("/");
     return response.data;
   } catch (error) {
     // Handle Error.

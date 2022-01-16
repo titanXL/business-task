@@ -1,18 +1,15 @@
 import { Route, Routes } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { Businesses } from "@/pages/Businesses";
-import { BusinessDetails } from "@/pages/Businesses/BusinessDetails";
+import { BusinessDetails } from "@/pages/Businesses/Details";
 import { NotFound } from "@/pages/NotFound";
 import { useBusinesses } from "@/providers/Businesses";
-import { Loading } from "@/pages/Loading";
-import { ErrorPage } from "@/pages/Error";
+import { SplashScreen } from "@/pages/Splash";
 
 const App: React.FC = () => {
-  const { isLoading, isError } = useBusinesses();
+  const { isLoading } = useBusinesses();
 
-  if (isLoading) return <Loading />;
-
-  if (isError) return <ErrorPage />;
+  if (isLoading) return <SplashScreen />;
 
   return (
     <Routes>
