@@ -1,0 +1,26 @@
+.container {
+  font-size: 1rem;
+  padding: 1.5em;
+  background-color: #fff;
+  overflow-y: auto;
+}
+
+.container h4 {
+  font-size: 1.5em;
+  font-weight: 400;
+  margin-bottom: 2em;
+}
+
+.container li {
+  background-color: var(--bg-color);
+  padding: 1em 2em;
+  font-size: 0.8rem;
+  color: rgb(99, 99, 99);
+
+  display: grid;
+  grid-template-columns: minmax(100px, 200px) 1fr;
+}
+
+.container a:not(:last-of-type) li {
+  margin-bottom: 3px;
+}
