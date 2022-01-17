@@ -3,7 +3,7 @@ import { HeroImage } from "@/components/HeroImage";
 import { Places } from "@/components/Places";
 import { useBusinesses } from "@/providers/Businesses";
 import { NotFoundError } from "@/utils/errors/not-found";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import styles from "./details.module.css";
 
@@ -15,6 +15,7 @@ export const BusinessDetails: React.FC = () => {
   const business = getBusinessDetailsById(params.businessId!);
 
   if (!business) {
+    // TODO: Wrap in own error boundary
     throw new NotFoundError();
   }
 
