@@ -5,26 +5,17 @@
   overflow-y: auto;
 }
 
-.row {
-  display: grid;
-  grid-template-columns: minmax(100px, 300px) 1fr;
-  background-color: #fff;
-  text-decoration: none;
-  color: black;
-}
-.row:not(:last-child) {
-  margin-bottom: 3px;
-}
-
-.row:not(:first-child):hover {
-  background-color: #f4f2f2;
-  cursor: pointer;
-}
-
 .content {
   padding: 1rem 2.2rem;
   font-weight: 400;
   font-size: 0.9rem;
+}
+
+.headers {
+  margin-bottom: 3px;
+  display: grid;
+  grid-template-columns: minmax(100px, 300px) 1fr;
+  background-color: #fff;
 }
 
 .content-header {

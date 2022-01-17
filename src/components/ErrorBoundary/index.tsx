@@ -1,3 +1,4 @@
+import { NotFoundError } from "@/utils/errors/not-found";
 import { Component, ErrorInfo, ReactNode } from "react";
 
 interface Props {
@@ -28,6 +29,7 @@ class ErrorBoundary extends Component<Props, State> {
       return (
         <div className="page-container">
           <h1>{this.state.error?.message}</h1>
+          <h2>{this.state.error instanceof NotFoundError ? "404" : "500"}</h2>
         </div>
       );
     }
