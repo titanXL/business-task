@@ -23,7 +23,7 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "react-scripts test",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -45,6 +45,8 @@
     ]
   },
   "devDependencies": {
+    "@types/axios-mock-adapter": "^1.10.0",
+    "axios-mock-adapter": "^1.20.0",
     "craco-alias": "^3.0.1"
   }
 }
